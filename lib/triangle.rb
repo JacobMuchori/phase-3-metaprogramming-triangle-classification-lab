@@ -7,12 +7,6 @@ class Triangle
         @side2 = side2
         @side3 = side3
     end
-  # def kind
-  #   raise TriangleError if invalid_triangle?
-  #   return :equilateral if @side1 > 0 && @side2 > 0 && @side3 > 0 && @side1 == @side2 && @side2 == @side3 && @side1 + @side2 > @side3 && @side2 + @side3 > @side1 
-  #   return :isosceles if @side1 > 0 && @side2 > 0 && @side3 > 0 && @side1 == @side2 || @side2 == @side3 || @side1 == @side3 
-  #   return :scalene
-  # end
 
   def kind
     if invalid_triangle?
@@ -29,8 +23,8 @@ class Triangle
   private
 
   def invalid_triangle?
-    sides = [side1, side2, side3]
-    sides.any? { |side| side <= 0 } || sides.sort[0] + sides.sort[1] <= sides.sort[2]
+    allsides = [side1, side2, side3]
+    allsides.any? { |side| side <= 0 } || allsides.sort[0] + allsides.sort[1] <= allsides.sort[2]
   end
 
     class TriangleError < StandardError
