@@ -23,8 +23,7 @@ class Triangle
   private
 
   def invalid_triangle?
-    allsides = [side1, side2, side3]
-    allsides.any? { |side| side <= 0 } || allsides.sort[0] + allsides.sort[1] <= allsides.sort[2]
+   side1 <= 0 || side2 <= 0 || side3 <= 0 || side2 + side1 <= side3 || side3 + side1 <= side2 || side3 + side2 <= side1
   end
 
     class TriangleError < StandardError
